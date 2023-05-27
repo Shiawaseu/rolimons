@@ -66,6 +66,7 @@ function find(itemdata, filter) {
 
 async function searchItem(mode, info) {
     if (mode == 'name') {
+        if (info.length <= 6) {info = toUpperCase(info)}
         await getItems().then( // Get all items to filter
             async function(data) {
                 let parsed = [data]
