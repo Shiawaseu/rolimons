@@ -23,7 +23,7 @@ rolimons.items.searchItem("name", "SSHF").then(
 ```
 
 ## Covered endpoints
-- Items (limited data **[USES CACHING]** & uuid tracking 
+- Items (limited data **[USES CACHING]** & uuid tracking)
 - Markets (trade ads)
 - Groups
 - Games
