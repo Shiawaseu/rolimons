@@ -66,11 +66,16 @@ function find(itemdata, filter) {
 
 async function searchItem(mode, info) {
     if (mode == 'name') {
-        if (info.length <= 6) {info = toUpperCase(info)}
+        var newi
+        if (info.length <= 6) {
+            newi = toUpperCase(info) // For Acryonyms
+        } else {
+            newi = info
+        }
         await getItems().then( // Get all items to filter
             async function(data) {
                 let parsed = [data]
-                let found = find(parsed, info)
+                let found = find(parsed, newi)
                 // Basic (Names & Values)
                 found.name = found[0]
                 found.acronym = found[1]
