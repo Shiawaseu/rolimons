@@ -66,9 +66,9 @@ function find(itemdata, filter) {
 
 async function searchItem(mode, info) {
     if (mode == 'name') {
-        var newi
-        if (info.length <= 6) {
-            newi = toUpperCase(info) // For Acryonyms
+        var newi = info
+        if (newi.length <= 6) {
+            newi = newi.toUpperCase() // For Acryonyms
         } else {
             newi = info
         }
