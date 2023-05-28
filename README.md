@@ -6,6 +6,9 @@
 # Rolimons
 - A High-level API Wrapper for Rolimons
 
+# Docs are available [here](https://shiawase.gitbook.io/rolimons-api-wrapper-docs/)
+- If you want tocontribute to docs [here](https://app.gitbook.com/invite/T0ZEwIdQo6bvNx27b3IB/cQ8kSe0SIXzmoVb0zsx0)
+
 ## Installation
 ```
 npm install rolimons
