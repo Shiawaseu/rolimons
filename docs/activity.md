@@ -1,5 +1,5 @@
 ---
-description: rolimons.activity (unfinished parsing)
+description: rolimons.activity
 ---
 
 # 🗓 Activity
