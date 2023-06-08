@@ -10,7 +10,6 @@ async function handler(...args) {
         })
         .catch(function(error) {
             console.log(error)
-            response = "ERROR"
         })
     return response
 }

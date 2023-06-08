@@ -2,7 +2,7 @@ const req = require("./request.js")
 const cheerio = require('cheerio')
 
 const endpoint = "https://rolimons.com/itemapi/itemdetails"
-const uuidurl = "https://www.rolimons.com/uaid/"
+const uaidurl = "https://www.rolimons.com/uaid/"
 var Cached = {
     Status: false,
     Data: undefined
@@ -115,10 +115,12 @@ async function searchItem(mode, info) {
     }
 }
 
-async function getUUID(uuid, users) {
+  
+
+async function getUAID(UAID, users) {
     let data = []
     data['history'] = []
-    const response = await req.request(uuidurl + uuid)
+    const response = await req.request(uaidurl + UAID)
     const parsed = cheerio.load(response['data'])
     let count = 1
     data['item_name'] = parsed('#page_content_body > div.container-fluid.mt-2.px-0 > div > div.col-12.col-sm-6.col-md-7.col-lg-8.col-xl-9.bg-primary.px-0.pb-3.pb-sm-0 > div.d-flex.justify-content-around > div:nth-child(1) > div.d-flex.mt-0.mt-md-4 > div.mx-2.mt-2.pt-0.pt-md-1.text-truncate > h5').text()
@@ -138,7 +140,7 @@ async function getUUID(uuid, users) {
             } catch (e) {
                 name = "Hidden/Deleted";
                 id = undefined
-            } // amazing one-line
+            }
             var updated_since = parsed(e).find(`div:nth-child(${count}) > div > div.mt-4.pt-2 > h5`).text()
             var updated_date = parsed(e).find(`div:nth-child(${count}) > div > div.mt-4.pt-2 > p.mb-0.text-center.small.text-muted`).text()
             data['history'].push({
@@ -150,7 +152,6 @@ async function getUUID(uuid, users) {
             count = count + 1
         }
     })
-    return data
 }
 
 
@@ -159,5 +160,5 @@ module.exports = { // Export functions
     getItems,
     clear_cache,
     searchItem,
-    getUUID
+    getUAID
 }
