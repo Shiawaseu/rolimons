@@ -88,7 +88,7 @@ rolimons.items.searchItem("name", "CWHP").then(
 
 ```
 
-## `.getUUID(<int> UUID, <int> users>`
+## `.getUAID(<int> UAID, <int> users>`
 
 Gets UUID current owner & it's history.
 
