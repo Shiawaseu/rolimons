@@ -152,6 +152,7 @@ async function getUAID(UAID, users) {
             count = count + 1
         }
     })
+    return data
 }
 
 
