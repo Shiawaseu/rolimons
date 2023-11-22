@@ -88,7 +88,7 @@ rolimons.items.searchItem("name", "CWHP").then(
 
 ```
 
-## `.getUAID(<int> UAID, <int> users>`
+## `.getUUID(<int> UUID, <int> users>`
 
 Gets UUID current owner & it's history.
 
@@ -96,7 +96,7 @@ Gets UUID current owner & it's history.
 
 ```javascript
 // Get UUID example
-// RESULTS MAY VARY IF THERE ARE NEW OWNERS!!
+// Do not take the response from this snippet as granted, as results are subject to change!
 const rolimons = require("rolimons")
 
 rolimons.items.getUUID(50921234383, 3).then(function(uuid) {
