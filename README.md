@@ -4,10 +4,9 @@
 </p>
 
 # Rolimons
-- A High-level API Wrapper for Rolimons
+- API-Wrapper for the [Rolimons] website
 
-# Docs are available [here](https://shiawase.gitbook.io/rolimons-api-wrapper-docs/) or visit `docs` in here.
-- If you want to contribute to docs [here](https://app.gitbook.com/invite/T0ZEwIdQo6bvNx27b3IB/cQ8kSe0SIXzmoVb0zsx0)
+# Docs are available [here](https://shiawase.gitbook.io/rolimons-api-wrapper-docs/) or visit `docs` in the root of this repository.
 
 ## Installation
 ```
@@ -26,12 +25,12 @@ rolimons.items.searchItem("name", "SSHF").then(
 ```
 
 ## Covered endpoints
-- Items (limited data **[USES CACHING]** & uuid tracking)
-- Markets (trade ads)
+- Items | limited data **[USES CACHING]** & uuid tracking (see the docs for examples of how caching works)
+- Market (trade ads)
 - Groups
 - Games
-- players & leaderboard
+- Players & Leaderboard
 
 ## To-Do
 - Add gamepasses to games API `getInfo` data
-- Support interacting with the website (post trade ads)
+- Support interacting with the website (post trade ads, user verification, etc.)
