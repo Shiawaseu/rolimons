@@ -4,7 +4,7 @@
 </p>
 
 # Rolimons
-- API-Wrapper for the [Rolimons] website
+- API-Wrapper for the [Rolimons](https://rolimons.com) website
 
 # Docs are available [here](https://shiawase.gitbook.io/rolimons-api-wrapper-docs/) or visit `docs` in the root of this repository.
 
