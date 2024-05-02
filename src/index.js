@@ -4,7 +4,7 @@ const groups = require('./modules/groups.js')
 const items = require('./modules/items.js')
 const players = require('./modules/players.js')
 
-module.exports = { //Export functions
+module.exports = { 
     activity,
     games,
     groups,

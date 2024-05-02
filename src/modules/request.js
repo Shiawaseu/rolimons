@@ -1,10 +1,10 @@
 const axios = require('axios');
 
-async function handler(...args) {
+async function request(...args) {
     let config = {
-        headers: args[1] // headers (if exists)
+        headers: args[1] 
     }
-    await axios.get(args[0], config) // request the endpoint
+    await axios.get(args[0], config) 
         .then(async function(res) {
             response = res
         })
@@ -14,11 +14,6 @@ async function handler(...args) {
     return response
 }
 
-async function request(...args) {
-    var request = await handler(...args)
-    return request
-}
-
-module.exports = { // Export functions
+module.exports = { 
     request
 }

@@ -5,11 +5,12 @@ const url = "https://www.rolimons.com/game/"
 
 async function getInfo(gameID) {
     try {
-        let data = [] // Default array
+        let data = [] 
+
         const request = await req.request(url + gameID)
         const parsed = cheerio.load(request['data'])
-        // Setting the array (filtering webscraps)
-        // Basic data
+
+        
         data['name'] = parsed('#page_content_body > div.mt-3.mx-3.d-flex.justify-content-between.flex-wrap > h1').text()
         data['creator_name'] = parsed('a.stat-data').text()
         data['created'] = parsed("#page_content_body > div.container-fluid.mt-2.px-0 > div > div.col-12.col-lg-4.col-xl-4.px-0 > div > div > div.d-flex.justify-content-around.justify-content-lg-start.pt-3.pb-4.px-5.px-sm-4.flex-wrap > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div.stat-data").text()
@@ -30,6 +31,6 @@ async function getInfo(gameID) {
     }
 }
 
-module.exports = { // Export functions
+module.exports = { 
     getInfo
 }

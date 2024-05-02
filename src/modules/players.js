@@ -3,7 +3,7 @@ const cheerio = require('cheerio')
 
 const website = "https://rolimons.com"
 const leaderboard = website + "/leaderboard/"
-const playerapi = website + "/playerapi/player/"
+const playerapi = "https://api.rolimons.com/players/v1/playerinfo/"
 
 async function getPlayer(userID) {
     let player = await req.request(playerapi + userID)
@@ -11,9 +11,11 @@ async function getPlayer(userID) {
 }
 
 async function getLeaderboard(page) {
+
     if (!page || page > 20) {
         return undefined
     }
+
     let players = []
     let count = 1
     const request = await req.request(leaderboard + page)
@@ -38,7 +40,7 @@ async function getLeaderboard(page) {
     return players
 }
 
-module.exports = { // Export functions
+module.exports = {
     getPlayer,
     getLeaderboard
 }

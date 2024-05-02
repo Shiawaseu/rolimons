@@ -1,10 +1,6 @@
 const req = require('./request.js')
-const url = "https://rolimons.com"
-const tradeads = "/tradeadsapi/getrecentads"
 
-
-
-
+const tradeads = "https://api.rolimons.com/tradeads/v1/getrecentads"
 
 const tagMapping = {
     "1": "Demand",
@@ -31,16 +27,13 @@ async function translate(arr) {
     return translated
 }
 
-
-
-
 async function getTradeAds() {
-    const response = await req.request(url + tradeads)
+    const response = await req.request(tradeads)
     const tradejson = response['data'].trade_ads
     let translated = await translate(tradejson)
     let trades = []
     let count = 0
-    for (let x of translated){
+    for (let x of translated) {
        let obj = []
        obj.posted = translated[count][1]
        obj.userid = translated[count][2]
@@ -53,6 +46,6 @@ async function getTradeAds() {
     return trades
 }
 
-module.exports = { // Export functions
+module.exports = { 
     getTradeAds
 }

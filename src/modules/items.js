@@ -1,26 +1,16 @@
 const req = require("./request.js")
 const cheerio = require('cheerio')
 
-const endpoint = "https://rolimons.com/itemapi/itemdetails"
+const endpoint = "https://api.rolimons.com/items/v1/itemdetails"
 const uaidurl = "https://www.rolimons.com/uaid/"
+
+
 var Cached = {
     Status: false,
     Data: undefined
-}; // Cache to avoid stressing the server
+}; 
 
-async function getItems() {
-    // Items is the whole response, we only need the JSON Body
-    if (Cached['Status'] == false) {
-        let items = await req.request(endpoint)
-        Cached['Status'] = true
-        Cached['Data'] = items
-        return items['data']
-    }
-    if (Cached['Status'] == true) {
-        let items = Cached['Data']
-        return items['data']
-    }
-}
+
 const dict = [
     demand = {
         "-1": "Unassigned",
@@ -44,8 +34,21 @@ const dict = [
 ]
 
 
+async function getItems() {
+    let items
+    if (!Cached['Status']) {
+        items = await req.request(endpoint)
+        Cached['Status'] = true
+        Cached['Data'] = items
+    }
+    else {
+        items = Cached['Data']
+    }
+    return items['data']
+}
+
+
 function clear_cache() {
-    // Function to clear cache in order to re-request the API
     Cached['Status'] = false
     Cached['Data'] = undefined
 }
@@ -68,11 +71,11 @@ async function searchItem(mode, info) {
     if (mode == 'name') {
         var newi = info
         if (newi.length <= 6) {
-            newi = newi.toUpperCase() // For Acryonyms
+            newi = newi.toUpperCase() 
         } else {
             newi = info
         }
-        await getItems().then( // Get all items to filter
+        await getItems().then( 
             async function(data) {
                 let parsed = [data]
                 let found = find(parsed, newi)
@@ -157,7 +160,7 @@ async function getUAID(UAID, users) {
 
 
 
-module.exports = { // Export functions
+module.exports = { 
     getItems,
     clear_cache,
     searchItem,
