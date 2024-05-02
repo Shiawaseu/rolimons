@@ -38,8 +38,9 @@ const rolimons = require("rolimons")
 
 rolimons.items.searchItem("name", "SSHF").then(
     function(item) {
+        if (!item) return;
         console.log(item.name, "which is also known as", item.acronym, "has a demand of", item.demand)
-    })
+})
 
 // Output: Super Super Happy Face which is also known as SSHF has a demand of Amazing
 ```
@@ -50,6 +51,7 @@ const rolimons = require("rolimons")
 
 rolimons.items.searchItem("id", 1028606).then(
     function(item) {
+        if (!item) return;
         console.log(item.name,  "has a demand of", item.demand)
     })
 
