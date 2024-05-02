@@ -1,6 +1,6 @@
 
 <p align="center">
-  <img src="https://images-ext-2.discordapp.net/external/FCOj4u6lhFftRcr9iFT9TTgwqXNUdGyfc2THAclGkII/https/cdn.discordapp.com/icons/439980323263086602/ec5023bb9ca40c98785d505b2335ca67.png" alt="Rolimons"/>
+  <img src="/assets/Icon.png" alt="Rolimons"/>
 </p>
 
 # Rolimons
