@@ -75,6 +75,7 @@ async function searchItem(mode, info) {
         } else {
             newi = info
         }
+        try {
         await getItems().then( 
             async function(data) {
                 let parsed = [data]
@@ -95,8 +96,12 @@ async function searchItem(mode, info) {
             }
         )
         return result
+    } catch {
+        return false
+    }
     }
     if (mode == 'id') {
+        try {
         await getItems().then(
             async function(data) {
                 const found = data['items'][info]
@@ -115,6 +120,9 @@ async function searchItem(mode, info) {
             }
         )
         return result
+    } catch {
+        return false
+    }
     }
 }
 
